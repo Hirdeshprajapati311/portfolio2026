@@ -5,6 +5,7 @@ export type Experiment = {
   category: string;
   technology: string;
   status: "exploring" | "building" | "complete";
+  link: string;
 };
 
 export const experiments: Experiment[] = [
@@ -16,6 +17,7 @@ export const experiments: Experiment[] = [
     category: "UI / Interaction",
     technology: "React + GSAP",
     status: "building",
+    link: "https://ui-forge-amber.vercel.app/",
   },
   {
     number: "02",
@@ -25,6 +27,7 @@ export const experiments: Experiment[] = [
     category: "3D / Web",
     technology: "Three.js + R3F",
     status: "exploring",
+    link: "https://ui-forge-amber.vercel.app/3d",
   },
   {
     number: "03",
@@ -34,6 +37,7 @@ export const experiments: Experiment[] = [
     category: "Interaction",
     technology: "React + Motion",
     status: "complete",
+    link: "https://ui-forge-amber.vercel.app/components/spill-tabs",
   },
   {
     number: "04",
@@ -43,6 +47,7 @@ export const experiments: Experiment[] = [
     category: "Motion",
     technology: "Motion",
     status: "complete",
+    link: "https://ui-forge-amber.vercel.app/components/magnetic-text-trail",
   },
   {
     number: "05",
@@ -52,5 +57,6 @@ export const experiments: Experiment[] = [
     category: "3D Assets",
     technology: "Three.js",
     status: "exploring",
+    link: "https://ui-forge-amber.vercel.app/3d/models",
   },
 ];

@@ -12,7 +12,11 @@ export function ExperimentItem({
   experiment,
 }: ExperimentItemProps) {
   return (
-    <motion.article
+    <motion.a
+      href={experiment.link}
+      target="_blank"
+      rel="noreferrer"
+      aria-label={`Open ${experiment.title} experiment`}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
@@ -52,6 +56,6 @@ export function ExperimentItem({
       <div className="flex size-9 items-center justify-center rounded-full border border-border text-muted-foreground transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:border-foreground/30 group-hover:text-foreground">
         <ArrowUpRight className="size-4" />
       </div>
-    </motion.article>
+    </motion.a>
   );
 }

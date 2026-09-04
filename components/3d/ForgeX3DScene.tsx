@@ -25,13 +25,19 @@ export function ForgeX3DScene({
   controlsRef,
 }: ForgeX3DSceneProps) {
   const [isClientMounted, setIsClientMounted] = useState(false);
+  const [contextLost, setContextLost] = useState(false);
 
   useEffect(() => {
     setIsClientMounted(true);
   }, []);
 
-  if (!isClientMounted) {
-    return <div className="absolute inset-0" aria-hidden="true" />;
+  if (!isClientMounted || contextLost) {
+    return (
+      <div
+        className="absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(255,255,255,0.12),transparent_42%)]"
+        aria-label="3D scene loading"
+      />
+    );
   }
 
   return (
@@ -43,6 +49,7 @@ export function ForgeX3DScene({
           fov: 28,
         }}
         dpr={[1, 1.25]}
+        frameloop="always"
         gl={{
           antialias: true,
           alpha: true,
@@ -51,15 +58,28 @@ export function ForgeX3DScene({
         onCreated={({ gl }) => {
           const canvas = gl.domElement;
 
-          canvas.addEventListener("webglcontextlost", (event) => {
+          const handleContextLost = (event: Event) => {
             event.preventDefault();
-          });
+            setContextLost(true);
+          };
+
+          const handleContextRestored = () => {
+            setContextLost(false);
+          };
+
+          canvas.addEventListener("webglcontextlost", handleContextLost);
+          canvas.addEventListener("webglcontextrestored", handleContextRestored);
 
           gl.setClearColor("#000000", 0);
           gl.shadowMap.enabled = true;
           gl.shadowMap.type = THREE.PCFShadowMap;
           gl.toneMapping = THREE.ACESFilmicToneMapping;
           gl.toneMappingExposure = 1.05;
+
+          return () => {
+            canvas.removeEventListener("webglcontextlost", handleContextLost);
+            canvas.removeEventListener("webglcontextrestored", handleContextRestored);
+          };
         }}
       >
         <ambientLight intensity={0.8} />

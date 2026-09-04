@@ -9,7 +9,6 @@ import {
 } from "@react-three/drei";
 import * as THREE from "three";
 import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
-import { useRef } from "react";
 import { ForgeX3DObject } from "./ForgeX3DObject";
 
 type ForgeX3DSceneProps = {

@@ -148,7 +148,7 @@ export default async function ProjectPage({
                   href={project.githubUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-medium text-black transition-transform hover:-translate-y-1"
+                  className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-medium !text-black transition-transform hover:-translate-y-1"
                 >
                   GitHub
                   <ArrowUpRight className="size-4" />

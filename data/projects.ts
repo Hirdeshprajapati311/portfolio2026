@@ -18,6 +18,9 @@ export const projects: Project[] = [
       "Rich text editing",
       "Collaborative synchronization",
     ],
+
+    liveUrl: "https://sync-note-beta.vercel.app/",
+    githubUrl: "https://github.com/Hirdeshprajapati311/syncNote",
   },
 
   {
@@ -37,6 +40,8 @@ export const projects: Project[] = [
       "REST API architecture",
       "Administrative dashboard",
     ],
+    liveUrl: "https://biometric-attendance-three.vercel.app/",
+    githubUrl: "https://github.com/Hirdeshprajapati311/BiometricAttendance",
   },
 
   {
@@ -56,6 +61,8 @@ export const projects: Project[] = [
       "Motion-driven interactions",
       "Experimental UI patterns",
     ],
+    liveUrl: "https://ui-forge-amber.vercel.app/",
+    githubUrl: "https://github.com/Hirdeshprajapati311/UI-Forge",
   },
 
   {
@@ -75,5 +82,7 @@ export const projects: Project[] = [
       "Web-based rendering",
       "3D asset exploration",
     ],
+    liveUrl: "https://ui-forge-amber.vercel.app/3d",
+    githubUrl: "https://github.com/Hirdeshprajapati311/UI-Forge",
   },
 ];
